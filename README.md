@@ -71,3 +71,7 @@ So the procedure would be something like:
 - Put away the light sensor.
 - The participant performs the task.
 - After the task ends, close the malak window to stop measurement.
+
+# Hardware design
+
+The document Hardware_design.docx currently shows a probably useless photo of the wiring of a prototype. To be updated if I ever get round to making it nicer.

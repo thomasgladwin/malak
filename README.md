@@ -26,7 +26,8 @@ Then do a pulse sensor tutorial: www.pulsesensor.com has a Getting Started proje
 video to get the very easy connections done and putting the velcro and vinyl stickers on. The video
 explains how to get the necessary Processing code (the .ino file) from PulseSensor’s github repository.
 Open the code and upload to the board. Using Tools -> Serial Plotter shows the pulse signal!
-Making it usable for experiments
+
+# Making it usable for experiments
 
 So the data are already there! We just need to save them, as the first step. Second, we might need to
 synchronize the PPG to task events.
@@ -37,7 +38,7 @@ pins to the – and + columns (on the side of the board; pick either side), resp
 “line”, on the breadboard and connect any pin to the A0 pin on the microcontroller. The attach the pins
 of the pulse sensor to the breadboard: The 5V and ground to any line on the side-lines, and the purple
 wire to a pin on the same line, and the same side of the line, as the pin connected to A0. (The lines are
-“cut” down the middle so without e.g. a resistor or button pins on the left aren’t connected to pins on
+“cut” down the middle so without, e.g., a resistor or button, pins on the left aren’t connected to pins on
 the right.) Check whether the PPG is still coming through via Serial Plotter. Also have a look at the raw
 numbers coming in with Serial Monitor.
 

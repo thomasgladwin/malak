@@ -60,7 +60,7 @@ Install Python 3.x. If you use the Anaconda distribution, you don't need admin r
 
 Now you can use the Python program malak.py from this repository: python malak.py. You may need to go into malak_sample.py to adjust the COM port to match your hardware.
 
-It will ask for a base filename to save data to (base.log), open a window, and then keep on reading in what the microcontroller is sending and saving it to file. You should see a visual representation of the signal values coming in, as well as the peak detection for the PPG. There's also a visual and auditory representation of the heart rate over the last few seconds. Measurement stops when you close the window.
+It will ask for a base filename to save data to (base.log), open a window, and then keep on reading in what the microcontroller is sending and saving it to file. You should see a visual representation of the signal values coming in, as well as the peak detection for the PPG. There's also a visual and auditory representation of the heart rate over the last few seconds, which could be useful for biofeedback purposes. Measurement stops when you close the window.
 
 malak.py calls malak_sample.py, but you can also run malak_sample.py directly: This only reads and prints the values coming in.
 

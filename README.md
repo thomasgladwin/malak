@@ -44,11 +44,11 @@ numbers coming in with Serial Monitor.
 
 # Using a light sensor to synchronize task events and data
 
-The Elegoo basic kit includes a light sensor. Its wiring is given in the its own chapter in the Elegoo tutorial. Use A1 instead of A0 (since A0 is used for the pulse sensor). 
+The Elegoo basic kit includes a light sensor. Its wiring is given in the its own chapter in the Elegoo tutorial. Use A1 instead of A0 (since A0 is used for the pulse sensor). Make sure you use a suitable resistor, otherwise the signal values can be attenuated or become zero.
 
 The file malak.ino in this repository contains the Processing code to measure the PPG and light sensor data. Upload this code to the microcontroller (make sure you're using the right type via Tools->Board, if you're using a Nano for instance) and open the Serial Monitor to see how sensitive the light sensor is. If we hold it up to some point of a black screen, it’s very clear if anything flashes white at that position. We can use that when programming tasks to synchronize the signal. For instance: The task lights up a rectangle or border at the start of every block and saves the exact time of the flash. If we save the light sensor signal together with the PPG signal, we can use the response to those flashes to synchronize the data. One nice thing is that this means we can use JavaScript tasks which wouldn’t allow triggers via a USB connection. Hence, we can use the same tasks for online and lab experiments. For an example online experiment with Javascript tasks, see https://github.com/thomasgladwin/onlineABM.
 
-We do need to get the light sensor into position on the screen, and remember to send some suitable
+We do need to get the light sensor into position on the screen and program the task to send some suitable
 light signal via the screen. One possibility is to light up the border of the Javascript canvas at the
 Introduction screen of the task, and save the time point when the border is removed and the edges turn
 black. That would allow a procedure in which the task can start up, then wait at the Introduction screen

@@ -35,7 +35,7 @@ synchronize the PPG to task events.
 First, we’re going to use the breadboard for connections instead of plugging into the microcontroller
 directly. Use jumper cables to power the breadboard by connecting the microcontroller’s ground and 5V
 pins to the – and + columns (on the side of the board; pick either side), respectively. Pick a row, or 
-“line”, on the breadboard and connect any pin to the A0 pin on the microcontroller. The attach the pins
+“line”, on the breadboard and connect any pin to the A0 pin on the microcontroller. Then attach the pins
 of the pulse sensor to the breadboard: The 5V and ground to any line on the side-lines, and the purple
 wire to a pin on the same line, and the same side of the line, as the pin connected to A0. (The lines are
 “cut” down the middle so without, e.g., a resistor or button, pins on the left aren’t connected to pins on
@@ -46,7 +46,7 @@ numbers coming in with Serial Monitor.
 
 The Elegoo basic kit includes a light sensor. Its wiring is given in the its own chapter in the Elegoo tutorial. Use A1 instead of A0 (since A0 is used for the pulse sensor). 
 
-The file malak.ino in this repository contains the Processing code to measure the PPG and light sensor data. Upload this code to the microcontroller and open the Serial Monitor to see how sensitive the light sensor is. If we hold it up to some point of a black screen, it’s very clear if anything flashes white at that position. We can use that when programming tasks to synchronize the signal. For instance: The task lights up a rectangle or border at the start of every block and saves the exact time of the flash. If we save the light sensor signal together with the PPG signal, we can use the response to those flashes to synchronize the data. One nice thing is that this means we can use JavaScript tasks which wouldn’t allow triggers via a USB connection. Hence, we can use the same tasks for online and lab experiments. For an example online experiment with Javascript tasks, see https://github.com/thomasgladwin/onlineABM.
+The file malak.ino in this repository contains the Processing code to measure the PPG and light sensor data. Upload this code to the microcontroller (make sure you're using the right type via Tools->Board, if you're using a Nano for instance) and open the Serial Monitor to see how sensitive the light sensor is. If we hold it up to some point of a black screen, it’s very clear if anything flashes white at that position. We can use that when programming tasks to synchronize the signal. For instance: The task lights up a rectangle or border at the start of every block and saves the exact time of the flash. If we save the light sensor signal together with the PPG signal, we can use the response to those flashes to synchronize the data. One nice thing is that this means we can use JavaScript tasks which wouldn’t allow triggers via a USB connection. Hence, we can use the same tasks for online and lab experiments. For an example online experiment with Javascript tasks, see https://github.com/thomasgladwin/onlineABM.
 
 We do need to get the light sensor into position on the screen, and remember to send some suitable
 light signal via the screen. One possibility is to light up the border of the Javascript canvas at the
@@ -56,11 +56,13 @@ until the sensor is positioned, and then the participant can continue with the t
 
 # Using a Python program to save data
 
-Install Python 3.x. If you use the Anaconda distribution, you don't need admin rights. Also install the pyserial library, from command line (search “cmd” or use Powershell or the Anaconda command line; make sure python.exe is in the path): python -m pip install pyserial. Also install the pygame library.
+Install Python 3.x. If you use the Anaconda distribution, you don't need admin rights. Also install the libraries needed by malak.py and malak_sample.py. E.g., the pyserial library: From command line (search “cmd” or use Powershell or the Anaconda command line; make sure python.exe is in the path): python -m pip install pyserial. At the time of writing, the other libary not available by default is pygame, which you can install the same way.
 
-Now you can use the Python program malak.py from this repository: python malak.py. You may need to go into malak.py to adjust the COM port to match your hardware.
+Now you can use the Python program malak.py from this repository: python malak.py. You may need to go into malak_sample.py to adjust the COM port to match your hardware.
 
-It will ask for a base filename to save data to (base.log), open a window, and then keep on reading in what the microcontroller is sending and saving it to file. You should see the numbers and a visual representation of the signal values coming in. Measurement stops when you close the window.
+It will ask for a base filename to save data to (base.log), open a window, and then keep on reading in what the microcontroller is sending and saving it to file. You should see a visual representation of the signal values coming in, as well as the peak detection for the PPG. There's also a visual and auditory representation of the heart rate over the last few seconds. Measurement stops when you close the window.
+
+malak.py calls malak_sample.py, but you can also run malak_sample.py directly: This only reads and prints the values coming in.
 
 So the procedure would be something like:
 

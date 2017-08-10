@@ -29,10 +29,10 @@ Open the code and upload to the board. Using Tools -> Serial Plotter shows the p
 
 # Making it usable for experiments
 
-So the data are already there! We just need to save them, as the first step. Second, we might need to
+So the data are already there! We just need to save them, and we might need to
 synchronize the PPG to task events.
 
-First, we’re going to use the breadboard for connections instead of plugging into the microcontroller
+In preparation for this, we’re going to use the breadboard for connections instead of plugging into the microcontroller
 directly. Use jumper cables to power the breadboard by connecting the microcontroller’s ground and 5V
 pins to the – and + columns (on the side of the board; pick either side), respectively. Pick a row, or 
 “line”, on the breadboard and connect any pin to the A0 pin on the microcontroller. Then attach the pins
@@ -44,12 +44,11 @@ numbers coming in with Serial Monitor.
 
 # Using a light sensor to synchronize task events and data
 
-The Elegoo basic kit includes a light sensor. Its wiring is given in the its own chapter in the Elegoo tutorial. Use A1 instead of A0 (since A0 is used for the pulse sensor). Make sure you use a suitable resistor, otherwise the signal values can be attenuated or become zero.
+The Elegoo basic kit includes a light sensor. Its wiring is given in its chapter in the Elegoo tutorial. Use A1 instead of A0 (since A0 is used for the pulse sensor). Make sure you use a suitable resistor, otherwise the signal values can be attenuated or become zero.
 
 The file malak.ino in this repository contains the Processing code to measure the PPG and light sensor data. Upload this code to the microcontroller (make sure you're using the right type via Tools->Board, if you're using a Nano for instance) and open the Serial Monitor to see how sensitive the light sensor is. If we hold it up to some point of a black screen, it’s very clear if anything flashes white at that position. We can use that when programming tasks to synchronize the signal. For instance: The task lights up a rectangle or border at the start of every block and saves the exact time of the flash. If we save the light sensor signal together with the PPG signal, we can use the response to those flashes to synchronize the data. One nice thing is that this means we can use JavaScript tasks which wouldn’t allow triggers via a USB connection. Hence, we can use the same tasks for online and lab experiments. For an example online experiment with Javascript tasks, see https://github.com/thomasgladwin/onlineABM.
 
-We do need to get the light sensor into position on the screen and program the task to send some suitable
-light signal via the screen. One possibility is to light up the border of the Javascript canvas at the
+We do need to get the light sensor into position on the screen (at the time of synchronization at least) and program the task to send some suitable light signal via the screen. One possibility is to light up the border of the Javascript canvas at the
 Introduction screen of the task, and save the time point when the border is removed and the edges turn
 black. That would allow a procedure in which the task can start up, then wait at the Introduction screen
 until the sensor is positioned, and then the participant can continue with the task.

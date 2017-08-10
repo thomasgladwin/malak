@@ -10,7 +10,7 @@ pounds.
 Pulse Sensor for heart rate: Pulse Sensor’s pulse sensor,
 https://www.amazon.co.uk/gp/product/B01CPP4QM0/ref=od_aui_detailpages01?ie=UTF8&psc=1. Around 20
 pounds. This sensor provides a photoplethysmogram (PPG): A voltage signal that reflects the changes in
-blood oxygen levels that occur as patterns between heart beats. The sensor exploits changes in light absorption that follow blood oxygen levels.
+blood oxygen levels that occur as patterns between heart beats. The sensor exploits changes in light absorption measured at the skin on the finger, which occur due to subtle changes in the volume of blood vessels during the cardiac cycle.
 
 Computer to present tasks and save data.
 

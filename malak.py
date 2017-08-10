@@ -120,16 +120,17 @@ while collecting == 1:
 	HR_normed = (HR - HR_min) / (HR_max - HR_min)
 	t = (375 - 100) * HR_normed
 	pygame.draw.rect(screen, (HR_normed * 200, 100, 100), (50, 375, 10, -t))
-	pygame.display.flip()
+	# pygame.display.flip()
+
+	# Light sensor
+	t = (375 - 100) * light_val / 1000
+	pygame.draw.rect(screen, (200, 200, 200), (525, 375, 10, -t))
+
+	pygame.display.flip()	
 
 	# HR audio representation
 	f = int(2000 + 3000 * HR_normed)
 	winsound.Beep(f, 50)
-	
-	# Light sensor
-	t = (375 - 100) * light_val / 1000
-	pygame.draw.rect(screen, (200, 200, 200), (350, 375, 10, -t))
-	pygame.display.flip()	
 	
 	for event in pygame.event.get():
 		if (event.type == pygame.QUIT):

@@ -80,6 +80,6 @@ The document Hardware_design.docx currently shows a probably useless photo of th
 
 # Citation
 
-Please cite as Thomas Edward Gladwin. (2017, August 10). thomasgladwin/malak: malak version 1.1. Zenodo. http://doi.org/10.5281/zenodo.841115. 
+Please cite as Thomas Edward Gladwin. (2017, August 10). thomasgladwin/malak: malak version 1.2. Zenodo. http://doi.org/10.5281/zenodo.841125. 
 
-[![DOI](https://zenodo.org/badge/99688224.svg)](https://zenodo.org/badge/latestdoi/99688224)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.841125.svg)](https://doi.org/10.5281/zenodo.841125)

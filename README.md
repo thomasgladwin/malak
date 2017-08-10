@@ -77,3 +77,7 @@ So the procedure would be something like:
 # Hardware design
 
 The document Hardware_design.docx currently shows a probably useless photo of the wiring of a prototype. To be updated if I ever get round to making it nicer.
+
+Please cite as Thomas Edward Gladwin. (2017, August 10). thomasgladwin/malak: malak version 1.1. Zenodo. http://doi.org/10.5281/zenodo.841115. 
+
+[![DOI](https://zenodo.org/badge/99688224.svg)](https://zenodo.org/badge/latestdoi/99688224)

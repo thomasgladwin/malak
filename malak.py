@@ -23,7 +23,7 @@ pygame.display.set_caption('Malak')
 screen.fill((155,155,55))
 myFont = pygame.font.SysFont("Times New Roman", 18)
 
-Fs = 100
+Fs = 200
 T = 4
 nSamples = math.ceil(Fs * T)
 HR_min = 40
@@ -76,17 +76,14 @@ while collecting == 1:
 		if (i_is_peak == 1):
 			IBI_samples.append(i)
 
-	# Remove neighbouring samples with equal max values
-	# ...
-
-	print(IBI_samples)
+	# print(IBI_samples)
 
 	IBI_sum = 0
 	IBI_N = 0
 	for i in range(len(IBI_samples) - 1):
 		this_IBI_samples = IBI_samples[i + 1] - IBI_samples[i]
 		this_IBI = this_IBI_samples / Fs
-		print(str(this_IBI) + " [" + str(IBI_min) + ", " + str(IBI_max) + "]")
+		# print(str(this_IBI) + " [" + str(IBI_min) + ", " + str(IBI_max) + "]")
 		if (this_IBI < IBI_min or this_IBI > IBI_max):
 			continue
 		IBI_sum = IBI_sum + this_IBI
